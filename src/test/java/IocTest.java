@@ -1,8 +1,11 @@
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import own.code.bean.AirPlane;
+import own.code.bean.Book;
 import own.code.bean.Person;
+import own.code.servlet.BookServlet;
 
 public class IocTest {
     // ClassPathXmlApplicationContext:当前应用的xml配置文件在classpath下
@@ -55,6 +58,7 @@ public class IocTest {
         Person bean1 = ioc2.getBean("person02", Person.class);
         System.out.println(bean1);
     }
+
     /**
      * 实验5：通过继承实现bean配置信息的重用
      */
@@ -75,6 +79,42 @@ public class IocTest {
         System.out.println(bean2);
         AirPlane bean3 = (AirPlane) ioc.getBean("airPlane03");
         System.out.println(bean3);
+    }
+
+    /**
+     * 创建带有生命周期方法的bean
+     */
+    @Test
+    public void test07() {
+        Book bean = (Book) ioc.getBean("book001");
+        System.out.println(bean);
+        ConfigurableApplicationContext cc = (ConfigurableApplicationContext) ioc;
+        cc.close();
+
+    }
+    @Test
+    public void test08() {
+        Object bean = ioc.getBean("dataSource");
+    }
+
+    /**
+     * 注解
+     */
+    @Test
+    public void test09() {
+        ApplicationContext ioc3 = new ClassPathXmlApplicationContext("ioc3.xml");
+        Object bean = ioc3.getBean("bookDao");
+        System.out.println(bean);
+    }
+
+    /**
+     * 自动注入
+     */
+    @Test
+    public void test10() {
+        ApplicationContext ioc3 = new ClassPathXmlApplicationContext("ioc3.xml");
+        BookServlet bean =(BookServlet) ioc3.getBean("bookServlet");
+        bean.doGet();
     }
 
 }
