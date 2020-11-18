@@ -1,6 +1,7 @@
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import own.code.bean.AirPlane;
 import own.code.bean.Person;
 
 public class IocTest {
@@ -51,6 +52,29 @@ public class IocTest {
         ApplicationContext ioc2 = new ClassPathXmlApplicationContext("ioc2.xml");
         Person bean = ioc2.getBean("person01", Person.class);
         System.out.println(bean);
-
+        Person bean1 = ioc2.getBean("person02", Person.class);
+        System.out.println(bean1);
     }
+    /**
+     * 实验5：通过继承实现bean配置信息的重用
+     */
+    @Test
+    public void test05() {
+        Person bean = ioc.getBean("person05", Person.class);
+        System.out.println(bean);
+    }
+
+    /**
+     * 实验6：：配置通过静态工厂方法创建的bean、实例工厂方法创建的bean、FactoryBean★
+     */
+    @Test
+    public void test06() {
+        AirPlane bean = (AirPlane) ioc.getBean("airPlane01");
+        System.out.println(bean);
+        AirPlane bean2 = (AirPlane) ioc.getBean("airPlane02");
+        System.out.println(bean2);
+        AirPlane bean3 = (AirPlane) ioc.getBean("airPlane03");
+        System.out.println(bean3);
+    }
+
 }

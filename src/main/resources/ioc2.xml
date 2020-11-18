@@ -43,9 +43,11 @@
     <bean id="car01" class="own.code.bean.Car">
         <property name="carName" value="捷达"></property>
     </bean>
-    <!--    级联属性赋值   属性的属性-->
-    <bean id="person02" class="own.code.bean.Person">
-
+    <!--    级联属性赋值   可以改变属性的属性 注意原来的bean值可能会被改变-->
+    <bean id="person02" class="own.code.bean.Person" >
+<!--        为car赋值的时候改变car的价格-->
+        <property name="car" ref="car01"></property>
+        <property name="car.price" value="1000000"></property>
     </bean>
 
 </beans>
