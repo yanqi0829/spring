@@ -8,7 +8,7 @@ import own.code.bean.Person;
 import own.code.servlet.BookServlet;
 
 public class IocTest {
-    // ClassPathXmlApplicationContext:当前应用的xml配置文件在classpath下
+    // ClassPathXmlApplicationContext:当前应用的xml配置文件在classpath下  创建容器
     private ApplicationContext ioc = new ClassPathXmlApplicationContext("ioc.xml");
 
     /**
