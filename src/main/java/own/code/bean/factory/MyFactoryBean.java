@@ -16,11 +16,11 @@ public class MyFactoryBean implements FactoryBean<AirPlane> {
      * 返回创建对象的类型
      */
     public Class<?> getObjectType() {
-        return null;
+        return AirPlane.class;
     }
 
     public boolean isSingleton() {
-        return false;
-//        return true;
+        return false;  //非单例
+//        return true;   返回单例
     }
 }

@@ -13,11 +13,12 @@
         <property name="age">
             <null/>
         </property>
+        <!--        ref是严格的引用，更改值 全变-->
         <property name="car" ref="car01"></property>
         <!--        list类型赋值-->
         <property name="books">
             <list>
-                <!--                可以使用bean 或ref标签-->
+                <!--                可以使用<bean> 或<ref>标签-->
             </list>
         </property>
         <!--        map类型赋值-->
@@ -32,7 +33,7 @@
             </map>
         </property>
 
-        <!--        properties类型赋值 key value都是字符串  值直接卸载标签体-->
+        <!--        properties类型赋值 key value都是字符串  值直接写在标签体-->
         <property name="properties">
             <props>
                 <prop key="11">123</prop>
@@ -44,8 +45,8 @@
         <property name="carName" value="捷达"></property>
     </bean>
     <!--    级联属性赋值   可以改变属性的属性 注意原来的bean值可能会被改变-->
-    <bean id="person02" class="own.code.bean.Person" >
-<!--        为car赋值的时候改变car的价格-->
+    <bean id="person02" class="own.code.bean.Person">
+        <!--        为car赋值的时候改变car的价格-->
         <property name="car" ref="car01"></property>
         <property name="car.price" value="1000000"></property>
     </bean>
