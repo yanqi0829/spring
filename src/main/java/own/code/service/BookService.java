@@ -6,7 +6,7 @@ import own.code.dao.BookDao;
 
 @Service("bookServiceExt")
 public class BookService {
-    @Autowired
+    @Autowired(required = false)   //(required = false)  找不到就不装配不报错
     private BookDao bookDao;
 
     public void save() {

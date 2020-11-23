@@ -7,6 +7,9 @@ import own.code.bean.Book;
 import own.code.bean.Person;
 import own.code.servlet.BookServlet;
 
+import javax.sql.DataSource;
+import java.sql.SQLException;
+
 public class IocTest {
 
 //    private ApplicationContext ioc = new ClassPathXmlApplicationContext("ioc.xml");
@@ -101,9 +104,10 @@ public class IocTest {
     }
 
     @Test
-    public void test08() {
+    public void test08() throws SQLException {
         ApplicationContext ioc = new ClassPathXmlApplicationContext("ioc.xml");
-        Object bean = ioc.getBean("dataSource");
+        DataSource bean = (DataSource)ioc.getBean("dataSource");
+        System.out.println(bean.getConnection());
     }
 
     /**

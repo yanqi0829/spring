@@ -8,8 +8,10 @@
                 http://www.springframework.org/schema/context/spring-context-4.1.xsd">
 
     <!--    自动扫描  Spring容器将会扫描这个基类包及其子包中的所有类,逗号分隔-->
-    <context:component-scan base-package="own.code">
-        <!--    <context:exclude-filter type="" expression=""/>-->
-        <!--        <context:include-filter type="" expression=""/>-->
+    <context:component-scan base-package="own.code.fanxing">
+        <!--                            use-default-filters="false">
+                               <context:include-filter type="assignable" expression="own.code.fanxing.BookDao"/>
+        -->
+<!--        <context:exclude-filter type="assignable" expression="own.code.dao.BookDao"/>-->
     </context:component-scan>
 </beans>
