@@ -12,6 +12,7 @@
         <spring.version>4.1.1.RELEASE</spring.version>
         <mysql.connector.version>5.1.30</mysql.connector.version>
         <druid.version>1.0.21</druid.version>
+        <aspectj.version>1.8.9</aspectj.version>
     </properties>
     <dependencies>
         <dependency>
@@ -35,6 +36,30 @@
             <artifactId>spring-test</artifactId>
             <version>${spring.version}</version>
         </dependency>
+        <!--        AOP-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aspects</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectj.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>3.2.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.aopalliance</groupId>
+            <artifactId>com.springsource.org.aopalliance</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <!--        AOP-->
+
+
         <!--        junit版本需要与spring-test版本兼容-->
         <dependency>
             <groupId>junit</groupId>
