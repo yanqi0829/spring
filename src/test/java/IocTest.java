@@ -8,8 +8,8 @@ import own.code.bean.Person;
 import own.code.servlet.BookServlet;
 
 public class IocTest {
-    // ClassPathXmlApplicationContext:当前应用的xml配置文件在classpath下  创建容器
-    private ApplicationContext ioc = new ClassPathXmlApplicationContext("ioc.xml");
+
+//    private ApplicationContext ioc = new ClassPathXmlApplicationContext("ioc.xml");
 
     /**
      * 存在几个问题：
@@ -19,13 +19,14 @@ public class IocTest {
      */
     @Test
     public void test01() {
-
-        System.out.println("容器启动完成、、、");
+        // ClassPathXmlApplicationContext:当前应用的xml配置文件在classpath下  创建容器
+        ApplicationContext ioc = new ClassPathXmlApplicationContext("ioc.xml");
+        System.out.println("容器启动完成，组件对象已经创建完成");
         Person person01 = (Person) ioc.getBean("person01");
         System.out.println(person01);
         //单例的
         Person person1 = (Person) ioc.getBean("person01");
-        System.out.println(person01 == person1);
+        System.out.println(person01 == person1);//true
     }
 
     /**
@@ -33,14 +34,17 @@ public class IocTest {
      */
     @Test
     public void test02() {
+        ApplicationContext ioc = new ClassPathXmlApplicationContext("ioc.xml");
         Person bean = ioc.getBean(Person.class);
         System.out.println(bean);
+        //不用强转
         Person bean2 = ioc.getBean("person01", Person.class);
         System.out.println(bean2);
     }
 
     @Test
     public void test03() {
+        ApplicationContext ioc = new ClassPathXmlApplicationContext("ioc.xml");
         Person bean = ioc.getBean("person03", Person.class);
         System.out.println(bean);
         Person bean1 = ioc.getBean("person04", Person.class);
@@ -64,6 +68,7 @@ public class IocTest {
      */
     @Test
     public void test05() {
+        ApplicationContext ioc = new ClassPathXmlApplicationContext("ioc.xml");
         Person bean = ioc.getBean("person05", Person.class);
         System.out.println(bean);
     }
@@ -73,6 +78,7 @@ public class IocTest {
      */
     @Test
     public void test06() {
+        ApplicationContext ioc = new ClassPathXmlApplicationContext("ioc.xml");
         AirPlane bean = (AirPlane) ioc.getBean("airPlane01");
         System.out.println(bean);
         AirPlane bean2 = (AirPlane) ioc.getBean("airPlane02");
@@ -86,14 +92,17 @@ public class IocTest {
      */
     @Test
     public void test07() {
+        ApplicationContext ioc = new ClassPathXmlApplicationContext("ioc.xml");
         Book bean = (Book) ioc.getBean("book001");
         System.out.println(bean);
         ConfigurableApplicationContext cc = (ConfigurableApplicationContext) ioc;
         cc.close();
 
     }
+
     @Test
     public void test08() {
+        ApplicationContext ioc = new ClassPathXmlApplicationContext("ioc.xml");
         Object bean = ioc.getBean("dataSource");
     }
 
@@ -113,7 +122,7 @@ public class IocTest {
     @Test
     public void test10() {
         ApplicationContext ioc3 = new ClassPathXmlApplicationContext("ioc3.xml");
-        BookServlet bean =(BookServlet) ioc3.getBean("bookServlet");
+        BookServlet bean = (BookServlet) ioc3.getBean("bookServlet");
         bean.doGet();
     }
 

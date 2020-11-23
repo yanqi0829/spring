@@ -16,7 +16,7 @@ public class Person {
     private Properties properties;
 
     public Person() {
-        System.out.println("person创建了、、、");
+        System.out.println("Person无参构造器、、、");
     }
 
     public Person(String lastName, Integer age, String gender, String email) {
@@ -24,7 +24,7 @@ public class Person {
         this.age = age;
         this.gender = gender;
         this.email = email;
-        System.out.println("有参构造器、、、");
+        System.out.println("Person有参构造器、、、");
     }
 
     public String getLastName() {return lastName;}

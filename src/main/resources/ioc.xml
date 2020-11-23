@@ -10,7 +10,7 @@
     <!--    注册一个Person对象，Spring会自动创建这个Person对象-->
     <!--    abstract="true" 改配置只能被继承，无法获取到-->
     <!--    depends-on="person03" 原本是按着配置的顺序创建bean ，此属性改变创建顺序 *****************没什么实际作用***********-->
-    <bean id="person01" class="own.code.bean.Person" abstract="true" depends-on="person03">
+    <bean id="person01" class="own.code.bean.Person">
         <property name="age" value="18"></property>
         <property name="lastName" value="张三"></property>
         <property name="email" value="zhangsan@own.com"></property>
@@ -18,11 +18,14 @@
     </bean>
     <!--    有参数构造器赋值-->
     <bean id="person03" class="own.code.bean.Person">
-        <constructor-arg name="age" value="19"></constructor-arg>
+        <constructor-arg name="age" value="19" ></constructor-arg>
         <constructor-arg name="email" value="111@own.com"></constructor-arg>
         <constructor-arg name="gender" value="女"></constructor-arg>
         <constructor-arg name="lastName" value="小红"></constructor-arg>
-        <!--可以省略name属性，严格按照构造器参数顺序 index type 不如一个name 好用
+        <!--可以省略name属性，需严格按照构造器参数顺序
+                index：索引指定从0开始
+                 type ：指定类型，解决构造器重载
+                 均不如一个name 好用
                 <constructor-arg  value="19"></constructor-arg>
                 <constructor-arg  value="111@own.com"></constructor-arg>
                 <constructor-arg value="女"></constructor-arg>
