@@ -1,6 +1,9 @@
 package own.aop;
 
-public class MyMathCalculatorImpl implements Calculator {
+import org.springframework.stereotype.Service;
+
+@Service
+public class MyMathCalculatorImpl /*implements Calculator*/ {
     public int add(int i, int j) {
         System.out.println("【add】：参数为" + i + "," + j);
         int result = i + j;
@@ -24,8 +27,13 @@ public class MyMathCalculatorImpl implements Calculator {
 
     public int div(int i, int j) {
         System.out.println("【div】：参数为" + i + "," + j);
-        int result = i / j;
-        System.out.println("【div】：结果为" + result);
+        int result = 0;
+//        try {
+            result = i / j;
+            System.out.println("【div】：结果为" + result);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
         return result;
     }
 }
