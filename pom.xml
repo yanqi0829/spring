@@ -58,7 +58,25 @@
             <version>1.0.0</version>
         </dependency>
         <!--        AOP-->
+        <!--        访问数据库-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-oxm</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
 
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <!--        访问数据库-->
 
         <!--        junit版本需要与spring-test版本兼容-->
         <dependency>

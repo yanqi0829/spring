@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                http://www.springframework.org/schema/context
+                http://www.springframework.org/schema/context/spring-context-4.1.xsd
+                http://www.springframework.org/schema/aop
+                http://www.springframework.org/schema/aop/spring-aop-4.1.xsd">
+    <context:component-scan base-package="own.aop">
+    </context:component-scan>
+    <!--    一、开启AOP注解功能-->
+    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+
+    <!--   二、 基于配置AOP功能
+    <bean id="myMathCalculator" class="own.aop.MyMathCalculatorImpl"></bean>
+
+    <bean id="logUtils2" class="own.aop.LogUtils"></bean>
+
+    <aop:config>
+       指定切面
+        <aop:aspect ref="logUtils2">
+            <aop:pointcut expression="execution( * own.aop.MyMathCalculatorImpl.*(..))" id="myPointCut"></aop:pointcut>
+            <aop:before method="logStart" pointcut-ref="myPointCut"></aop:before>
+            <aop:after-returning method="logReturn" pointcut="execution( * own.aop.MyMathCalculatorImpl.*(..))" returning="result"></aop:after-returning>
+            <aop:after method="logEnd" pointcut-ref="myPointCut"></aop:after>
+            <aop:after-throwing method="logException" pointcut-ref="myPointCut" throwing="ex"></aop:after-throwing>
+             <aop:around method="myAround" pointcut-ref="myPointCut"></aop:after>
+        </aop:aspect>
+
+    </aop:config>
+        -->
+
+</beans>
