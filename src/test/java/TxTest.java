@@ -3,6 +3,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 import own.code.tx.Book1Service;
+import own.code.tx.MulService;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -25,6 +26,13 @@ public class TxTest {
         Book1Service bean = ioc.getBean(Book1Service.class);
         System.out.println(bean);
         bean.checkout("Tom","ISBN-001");
+
+    }
+
+    @Test
+    public void test03() {
+        MulService bean = ioc.getBean(MulService.class);
+        bean.mulTx();
 
     }
 }

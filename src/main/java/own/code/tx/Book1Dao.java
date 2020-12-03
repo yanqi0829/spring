@@ -18,7 +18,7 @@ public class Book1Dao {
     //获取书的价格
     public int getPrice(String isbn) {
         String sql = "select price from book where isbn=?";
-       return jdbcTemplate.queryForObject(sql, Integer.class, isbn);
+        return jdbcTemplate.queryForObject(sql, Integer.class, isbn);
     }
 
     //减库存
@@ -26,4 +26,11 @@ public class Book1Dao {
         String sql = "update book_stock set stock=stock-1 where isbn=?";
         jdbcTemplate.update(sql, isbn);
     }
+
+    //更新价格
+    public void updatePrice(String isbn, int price) {
+        String sql = "update book set price=? where isbn=?";
+        jdbcTemplate.update(sql, price, isbn);
+    }
+
 }
